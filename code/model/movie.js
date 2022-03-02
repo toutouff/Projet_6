@@ -13,7 +13,7 @@ async function fetch_movie(url) {
 }
 
 async function fetch_modal(id){
-  let url = 'http://127.0.0.1:8000/api/v1/titles/'+id.toString()
+  let url = 'http://127.0.0.1:8000/api/v1/titles/'+id
   let response = await fetch(url)
   if (response.ok) {
     let data = await response.json();

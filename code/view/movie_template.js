@@ -1,8 +1,4 @@
 function render_modal(data){
-  let card = create_element('div','movie_card','')
-  let card_title = create_element('h3','card_title',data.title)
-  let card_img = create_element('img','card_img',data.image_url,true)
-  let modal = create_element('div','modal','')
   let modal_title = create_element('h3','modal_title',data.title)
   let modal_img = create_element('img','modal_img',data.image_url,true)
   let modal_info = create_element('div','modal_info','')
@@ -18,10 +14,7 @@ function render_modal(data){
   let modal_longDescription = create_element('p','longDescription',data.long_description)
   let modal_closeButton = create_element('span','modal_closeButton','&times;')
   modal_info.append(modal_closeButton,modal_title,modal_img,modal_genres,modal_outDate,modal_rated,modal_imdb,modal_directors,modal_actors,modal_duration,modal_country,modal_boxOffice,modal_longDescription)
-  modal.append(modal_info)
-  card.append(card_title,card_img,modal)
-  event_setter(card)
-  return card
+  return modal_info
 }
 
 function render_card(title,image_url,id) {

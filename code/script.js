@@ -1,3 +1,9 @@
-//render_movie_list('romance',document.getElementById('content'))
-//make_carousel('action',document.getElementById('content'))
-append_slider(document.getElementById('content'),'action')
+
+main()
+
+function main(){
+  let sliders_placeholders = document.getElementsByClassName('slider')
+  for (let slider_placeholder of sliders_placeholders){
+    append_slider(slider_placeholder,slider_placeholder.getAttribute('categorie'))
+  }
+}
