@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box
+}
+
+.card_item {
+    margin: 0.5%;
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+}
+
+.card_item:hover {
+    cursor : pointer;
+}
+
+.card_img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card_title {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card_item:hover .card_title {
+    opacity: 1;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0,0,0);
+    /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    /* Black w/ opacity */
+}
+
+.modal_info {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal_closeButton {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal_closeButton:hover, .modal_closeButton:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card_list{
+    display: flex;
+    padding: 5px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+.carousel_btn{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.carousel_btn:hover, .carousel_btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
