@@ -40,7 +40,7 @@ function slider_setter(slider_doc){
     }
     else if (min_pos == 0){
       max_pos = card_list.length -1
-      min_pos = card_list.length -2
+      min_pos = card_list.length -slider_width
     }
     update_slide(card_list)
   }
