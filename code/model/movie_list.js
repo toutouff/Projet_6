@@ -9,8 +9,17 @@ async function fetch_category(category,page) {
     return await data
   }
 }
+async function fetch_slider_data(category){
+  let data = await fetch_category(category,1)
+  console.log(await data);
+  let data2 = await fetch_category(category,2)
+  console.log(await data2);
+  data.results = await data.results.concat(await data2.results)
+  console.log(await data.results)
+  return await data
+}
 async function gen_slider(category,page){
-  let slider = new Slider(category,await fetch_category(category,page));
+  let slider = new Slider(category,await fetch_slider_data(category));
   return slider
 }
 
