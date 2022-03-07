@@ -1,5 +1,51 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+}
+
+.inline_card{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+a.nav-link{
+  color:rgb(214,214,214);
+  /* margin: 5% 10%; */
+}
+.nav-link:hover{
+  color:rgb(255,255,255)
+}
+.Page-title{
+  text-align: center;
+  margin: 1%;
+  padding:5px;
+  color:rgb(255,255,255);
+}
+.carroussel_title{
+  color:rgb(225,225,225)
+}
+.carroussel_title:hover{
+  color:rgb(255,255,255)
+}
+header{
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+nav{
+    display:flex;
+    flex:1;
+    justify-content: space-evenly;
+    /* flex-direction: row; */
+    align-items: center;
+    align-content: space-around;
+}
+
+body{
+  font-family:"Raleway",sans-serif;
+  background-color: rgb(21,20,21);
 }
 
 .card_item {
@@ -17,6 +63,13 @@
     display: block;
     width: 100%;
     height: auto;
+}
+.inline_img{
+  display : block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  max-height: auto;
 }
 
 .card_title {
@@ -62,13 +115,20 @@
 }
 
 .modal_info {
-    background-color: #fefefe;
+    background-color: rgb(23,23,23);
+    color: white;
     margin: 15% auto;
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     /* Could be more or less, depending on screen size */
+}
+.inline_infos{
+  color:white;
+  /* margin: 15% auto; */
+  padding: 20px;
+  /* width:70%; */
 }
 
 .modal_closeButton {
@@ -86,14 +146,22 @@
 
 .card_list{
     display: flex;
+    flex: 1;
     padding: 5px;
+    justify-content: space-evenly;
 }
 
 .carousel {
     display: flex;
     align-items: center;
 }
+
+.carousel {
+    border-top: 1px gray;
+    border-top-style: solid;
+}
 .carousel_btn{
+    padding: 0% 0.5%;
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -105,9 +173,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
 .--hidden{
   display: none;
-}
-h2{
-    color: white
 }

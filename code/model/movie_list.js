@@ -1,5 +1,5 @@
 async function fetch_category(category,page) {
-  let url = 'http://127.0.0.1:8000/api/v1/titles/?genre=' + category
+  let url = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=+-imdb_score&genre=' + category
   if(page>1){
     url +=`&page=${page}`
   }
