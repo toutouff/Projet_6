@@ -1,7 +1,5 @@
-let pos = 0
-
 async function make_slider(category){
-  let slider = await gen_slider(category,1)
+  let slider = await gen_slider(category)
   slider.gen_card_list()
   let slider_doc = render_slider(category)
   let card_list = slider_doc.getElementsByClassName('card_list')[0]
@@ -19,7 +17,9 @@ async function append_slider(parent, category){
 }
 
 function slider_setter(slider_doc){
-  let pos = 0
+  let slider_width = 4
+  let min_pos = slider_width - slider_width
+  let max_pos = slider_width - 1
   let card_list = slider_doc.getElementsByClassName('card_item')
   update_slide(card_list)
   let btn_list = slider_doc.getElementsByClassName('carousel_btn')
@@ -34,33 +34,41 @@ function slider_setter(slider_doc){
     }
   }
   function left(card_list) {
-    if (pos > 0){
-      pos--
+    if (min_pos > 0){
+      min_pos--
+      max_pos--
     }
-    else if (pos == 0){
-      pos = card_list.length - 1
+    else if (min_pos == 0){
+      max_pos = card_list.length -1
+      min_pos = card_list.length -slider_width
     }
     update_slide(card_list)
   }
   function right(card_list) {
-    if (pos < card_list.length -1){
-      pos ++
+    if (max_pos < card_list.length -1){
+      min_pos++
+      max_pos++
     }
-    else if (pos == card_list.length-1)
+    else if (max_pos == card_list.length-1)
     {
-      pos = 0
+      min_pos = 0
+      max_pos = slider_width - 1
     }
     update_slide(card_list)
   }
 
   function update_slide(card_list){
+    console.log('update_slide')
     for(let card of card_list){
       card.classList.remove('--visible')
       card.classList.add('--hidden')
     }
-    let actual_card = card_list[pos]
-    actual_card.classList.remove('--hidden')
-    actual_card.classList.add('--visible')
+    for(let i = min_pos; i<=max_pos;i++){
+      console.log(`index du film ${i} min ${min_pos} max ${max_pos}`)
+      let temp_card = card_list[i]
+      temp_card.classList.remove('--hidden')
+      temp_card.classList.add('--visible')
+    }
   }
 
 }
