@@ -1,3 +1,9 @@
+/**
+ * gen the modal html document
+ * @method render_modal
+ * @param  {[Json]}     data               [the json from fetch_modal]
+ * @return {[Document]}          [the modal html document]
+ */
 function render_modal(data){
   let modal_title = create_element('h3','modal_title',data.title)
   let modal_img = create_element('img','modal_img',data.image_url,true)
@@ -16,6 +22,12 @@ function render_modal(data){
   modal_info.append(modal_closeButton,modal_title,modal_img,modal_genres,modal_outDate,modal_rated,modal_imdb,modal_directors,modal_actors,modal_duration,modal_country,modal_boxOffice,modal_longDescription)
   return modal_info
 }
+/**
+ * gen the inline html movie block/document
+ * @method render_inline_card
+ * @param  {[json]}           data               [the json from fetch_category]
+ * @return {[Document]}       inline_card        [the html document]
+ */
 function render_inline_card(data){
   let inline_card = create_element('div','inline_card','')
   inline_card.setAttribute('data-id',data.id)
@@ -30,7 +42,14 @@ function render_inline_card(data){
   inline_card.append(inline_img,inline_infos)
   return inline_card
 }
-
+/**
+ * gen card block
+ * @method render_card
+ * @param  {String}    title                   [from movie class]
+ * @param  {String}    image_url               [from movie class]
+ * @param  {Integer}    id                      [for the fetching of the modal]
+ * @return {[Document]}              [card to add to the slider document]
+ */
 function render_card(title,image_url,id) {
   let card = create_element('div','card_item','');
   let card_title = create_element('h2','card_title',title)
@@ -39,7 +58,15 @@ function render_card(title,image_url,id) {
   card.append(card_title,card_img)
   return card
 };
-
+/**
+ * simply create a html element
+ * @method create_element
+ * @param  {[type]}       type                            [the type of balise (div,h,p,...)]
+ * @param  {[type]}       attribute_content               [name of the class]
+ * @param  {[type]}       content                         [innterHTML if img = true then content=> source of the img]
+ * @param  {Boolean}      [img=false]                     [if its an img or not]
+ * @return {[type]}                         [description]
+ */
 function create_element(type,attribute_content,content,img = false) {
   let elmt = document.createElement(type);
   elmt.setAttribute('class',attribute_content)
@@ -47,28 +74,3 @@ function create_element(type,attribute_content,content,img = false) {
   else elmt.innerHTML = content
   return elmt;
 }
-
-/*function event_setter(card){
-  let modal = card.getElementsByClassName('modal')[0]
-  let close_button = card.getElementsByClassName('modal_closeButton')[0]
-  card.onclick = function(){
-    modal.style.display = 'block'
-  }
-  close_button.onclick = function(){
-    event.stopPropagation()
-    modal.style.display = 'none'
-  }
-}*/
-
-/*L’image de la pochette du film
-Le Titre du film
-Le genre complet du film
-Sa date de sortie
-Son Rated
-Son score Imdb
-Son réalisateur
-La liste des acteurs
-Sa durée
-Le pays d’origine
-Le résultat au Box Office
-Le résumé du film*/

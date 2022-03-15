@@ -11,7 +11,12 @@ async function fetch_movie(url) {
     return await data;
   }
 }
-
+/**
+  * request the modal data
+  * @method fetch_modal
+  * @param {Integer}
+  * @return {JSON}
+  */
 async function fetch_modal(id){
   let url = 'http://127.0.0.1:8000/api/v1/titles/'+id
   let response = await fetch(url)
@@ -20,7 +25,10 @@ async function fetch_modal(id){
     return await data
   }
 }
-
+/**
+  * Card class to easly access most used data
+  * @param {[JSON]}
+  */
 class Card{
   constructor(data){
     this.data = data;

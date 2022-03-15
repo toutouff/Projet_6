@@ -1,3 +1,10 @@
+/**
+ * [fetch an api page]
+ * @method fetch_category
+ * @param  {String}       category               [the category of the slider]
+ * @param  {Integer}       page                   [the page for the api]
+ * @return {JSON}          data                   [the json containing the api response]
+ */
 async function fetch_category(category,page) {
   let url = 'http://127.0.0.1:8000/api/v1/titles/?sort_by=+-imdb_score&genre=' + category
   if(page>1){
@@ -9,6 +16,13 @@ async function fetch_category(category,page) {
     return await data
   }
 }
+
+/**
+ * [fetch 2 api page and merge data]
+ * @method fetch_slider_data
+ * @param  {String}          category               [the category of the slider]
+ * @return {JSON}          data               [the json containing api response]
+ */
 async function fetch_slider_data(category){
   let data = await fetch_category(category,1)
   console.log(await data);
@@ -18,11 +32,21 @@ async function fetch_slider_data(category){
   console.log(await data.results)
   return await data
 }
-async function gen_slider(category,page){
+
+/**
+ * intanciate a slider object
+ * @method gen_slider
+ * @param  {[type]}   category               [for the fetch of data]
+ * @return {[Slider]}   slider                 [to easly access most used data]
+ */
+async function gen_slider(category){
   let slider = new Slider(category,await fetch_slider_data(category));
   return slider
 }
-
+/**
+ * class to easly access most used data
+ *
+ */
 class Slider {
   constructor(category,data) {
     this.category = category
@@ -35,23 +59,3 @@ class Slider {
     }
   }
 }
-//function data_cleaner(data_list) {
-//  let url_list = []
-//  for (let data of data_list){
-//    for(let movie of data.results){
-//      url_list.push(movie.url)
-//    }
-//  }
-//  let clean_data = {
-//    previous : data_list[0].previous,
-//    next : data_list[data_list.length-1].next,
-//    url_list:url_list
-//  }
-//  return clean_data
-//}
-//async function get_movies_url(category){
-//  let category_data = await fetches_category(category)
-//  let category_data_page2 = await fetches_category(category,2)
-//  let clean_data = data_cleaner(await category_data,await category_data_page2)
-//  return clean_data
-//

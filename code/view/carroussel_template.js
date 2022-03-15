@@ -1,3 +1,9 @@
+/**
+ * gen the html document
+ * @method render_slider
+ * @param  {[String]}      category               [to show the name of the fetched category]
+ * @return {[Document]}               [the html  document]
+ */
 function render_slider(category){
   let movie_list_div = create_element('div','movie_list','')
   let carousel = create_element('div','carousel','')
@@ -9,29 +15,3 @@ function render_slider(category){
   movie_list_div.append(title,carousel)
   return movie_list_div
 }
-
-/*function slider_seter(carousel){
-  let slide_pos_min = 0
-  let slide_pos_max = 6
-  const slides = carousel.getElementsByClassName('movie_card')
-  tot_slides = slides.length
-  console.log()
-  function update_slide(slides){
-    for(let i = 0; i < tot_slides; i++){
-      let slide = slides.item(i)
-      if (slide_pos_min <=i & i <= slide_pos_max ){
-        slide.classList.toggle('--visible')
-      }
-      else{
-        slide.classList.toggle('--hidden')
-      }
-    }
-  }
-  update_slide(slides)
-  function right(){
-    slide_pos_min ++
-    slide_pos_max ++
-    update_slide(slides)
-  }
-  right()
-}*/

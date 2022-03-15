@@ -1,6 +1,7 @@
-
 main()
-
+/**
+  * main function which interact between the controler and the dom
+  */
 function main(){
   let fav_movie = document.getElementById('best_movie')
   append_inline_card(fav_movie)

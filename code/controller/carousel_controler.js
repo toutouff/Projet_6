@@ -1,3 +1,11 @@
+/**
+ * get the slider document and the data from the model and template and set
+ * all event listener
+ * append to the slider all the movie card linked to itself
+ * @method make_slider
+ * @param  {[String]}    category               [to send it to the fetch ]
+ * @return {[Document]}             [a full docment ready to be added to the dom]
+ */
 async function make_slider(category){
   let slider = await gen_slider(category)
   slider.gen_card_list()
@@ -10,12 +18,23 @@ async function make_slider(category){
   }
   return await slider_doc
 }
+/**
+ * call make_slider and then append it to the page
+ * @method append_slider
+ * @param  {[Document]}      parent                 [the node to append]
+ * @param  {[String]}      category               [the category for getting the data]
+ */
 async function append_slider(parent, category){
   let slider = await make_slider(category)
   slider_setter(await slider)
   parent.appendChild(await slider)
 }
 
+/**
+ * set the envent on the slider
+ * @method slider_setter
+ * @param  {[Document]}      slider_doc               [the slider to set]
+ */
 function slider_setter(slider_doc){
   let slider_width = 4
   let min_pos = slider_width - slider_width
@@ -33,6 +52,11 @@ function slider_setter(slider_doc){
         break;
     }
   }
+  /**
+   * move pos to the left
+   * @method left
+   * @param  {[type]} card_list               [to update the status of evry card]
+   */
   function left(card_list) {
     if (min_pos > 0){
       min_pos--
@@ -44,6 +68,11 @@ function slider_setter(slider_doc){
     }
     update_slide(card_list)
   }
+  /**
+   * move pos to the right
+   * @method right
+   * @param  {[type]} card_list               [to update the status of evry card]
+   */
   function right(card_list) {
     if (max_pos < card_list.length -1){
       min_pos++
@@ -56,7 +85,11 @@ function slider_setter(slider_doc){
     }
     update_slide(card_list)
   }
-
+  /**
+   * update the status of a card in function of the slider --visible position
+   * @method update_slide
+   * @param  {[type]}     card_list               [to change the status of a card]
+   */
   function update_slide(card_list){
     console.log('update_slide')
     for(let card of card_list){
