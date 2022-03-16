@@ -9,6 +9,7 @@
 async function make_slider(category){
   let slider = await gen_slider(category)
   slider.gen_card_list()
+  if(category==''){category = 'meilleurs notes'}
   let slider_doc = render_slider(category)
   let card_list = slider_doc.getElementsByClassName('card_list')[0]
   for (let card_data of await slider.card_list){
